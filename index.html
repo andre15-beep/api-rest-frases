@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>API de Frases Motivacionais</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="API de Frases Motivacionais para uso Educacional e Pessoal">
+
+
+</head>
+
+<body>
+
+    <header>
+        <h1>📘 API de Frases Motivacionais</h1>
+        <p>API REST simples para consumo de frases motivacionais em português</p>
+    </header>
+
+    <main>
+
+        <section>
+            <h2>📌 Visão Geral</h2>
+            <p class="desc">
+                Esta API fornece frases motivacionais voltadas para estudo, foco,
+                disciplina e constância. Todas as respostas são retornadas no formato
+                <strong>JSON</strong>.
+            </p>
+
+            <p class="desc">
+                Antes de consumir a API, utilize esta página como referência para entender
+                os endpoints disponíveis e o formato das respostas.
+            </p>
+        </section>
+
+        <section>
+            <h2>🌐 Base URL</h2>
+            <div class="endpoint">
+                https://sua-api.com
+            </div>
+            <p class="desc">
+                Em ambiente local:
+            </p>
+            <div class="endpoint">
+                http://localhost:3000
+            </div>
+        </section>
+
+        <section>
+            <h2>🔹 Get Random Quote</h2>
+
+            <p class="desc">
+                Retorna uma frase aleatória do banco de dados.
+            </p>
+
+            <div class="endpoint">
+                GET /frases/random
+            </div>
+
+            <h3>Resposta esperada</h3>
+            <pre>
+                {
+                "id": 42,
+                "frase": "Estudar hoje é facilitar a vida do seu eu do futuro.",
+                "categoria": "estudo",
+                "autor": "Desconhecido"
+                }
+    </pre>
+        </section>
+
+        <section>
+            <h2>🔹 Get All Quotes</h2>
+
+            <p class="desc">
+                Retorna todas as frases cadastradas na API.
+            </p>
+
+            <div class="endpoint">
+                GET /frases
+            </div>
+
+            <h3>Resposta esperada</h3>
+            <pre>
+[
+  {
+    "id": 1,
+    "frase": "A disciplina vence a motivação.",
+    "categoria": "disciplina",
+    "autor": ""
+  },
+  {
+    "id": 2,
+    "frase": "Cada dia de estudo é um passo à frente.",
+    "categoria": "estudo",
+    "autor": ""
+  }
+]
+    </pre>
+        </section>
+
+        <section>
+            <h2>🔹 Get Quotes by Category</h2>
+
+            <p class="desc">
+                Retorna frases filtradas por categoria.
+            </p>
+
+            <div class="endpoint">
+                GET /frases/categoria/{categoria}
+            </div>
+
+            <h3>Exemplo de categorias</h3>
+            <pre>
+estudo
+foco
+disciplina
+motivacao
+constancia
+    </pre>
+
+            <h3>Resposta esperada</h3>
+            <pre>
+[
+  {
+    "id": 7,
+    "frase": "Foco é dizer não ao que te distrai.",
+    "categoria": "foco",
+    "autor": ""
+  }
+]
+    </pre>
+        </section>
+
+        <section>
+            <h2>🔹 Search Quotes</h2>
+
+            <p class="desc">
+                Busca frases que contenham um termo específico.
+            </p>
+
+            <div class="endpoint">
+                GET /frases/buscar?q=palavra
+            </div>
+
+            <h3>Resposta esperada</h3>
+            <pre>
+[
+  {
+    "id": 19,
+    "frase": "O esforço de hoje constrói o sucesso de amanhã.",
+    "categoria": "motivacao",
+    "autor": ""
+  }
+]
+    </pre>
+        </section>
+
+        <section>
+            <h2>📦 Estrutura do Retorno</h2>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Campo</th>
+                        <th>Tipo</th>
+                        <th>Descrição</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>id</td>
+                        <td>number</td>
+                        <td>Identificador único da frase</td>
+                    </tr>
+                    <tr>
+                        <td>frase</td>
+                        <td>string</td>
+                        <td>Texto da frase</td>
+                    </tr>
+                    <tr>
+                        <td>categoria</td>
+                        <td>string</td>
+                        <td>Categoria da frase</td>
+                    </tr>
+                    <tr>
+                        <td>autor</td>
+                        <td>string</td>
+                        <td>Autor da frase (se informado)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+    </main>
+
+    <footer>
+        API de Frases Motivacionais • Uso educacional e pessoal - alezysolution - www.redes-expert.com.br
+    </footer>
+
+</body>
+
+</html>
